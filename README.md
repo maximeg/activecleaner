@@ -1,7 +1,5 @@
 # ActiveCleaner
 
-**Gem is not yet published due to [RubyGems security shutdown](http://status.rubygems.org/). Will be soon.**
-
 `ActiveCleaner` is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)
 
 Extra spaces mean extra storage. And it could ruin your indexes and your sortings.
@@ -95,4 +93,5 @@ You can also use `guard` to run the specs during dev.
 
 [License](https://github.com/maximeg/activecleaner/blob/master/LICENSE)
 \- [Report a bug](https://github.com/maximeg/activecleaner/issues)
+\- [Rubygems page](https://rubygems.org/gems/activecleaner)
 [![Continuous Integration status](https://secure.travis-ci.org/maximeg/activecleaner.png)](http://travis-ci.org/maximeg/activecleaner)

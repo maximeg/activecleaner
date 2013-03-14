@@ -22,8 +22,8 @@ end
 ### Cleaners included
 
  * `:string` (StringCleaner, the default one) : cleans all the space characters. It turns `"   A  \n  \t title   \t  "` into `"A title"`.
- * `:text` (TextCleaner) : like `:string`, but preserves new lines (with a max of 2 successive new lines). Usefull when the field is rendered with the `simple_format` Rails helper.
- * `:markdown` (MarkdownCleaner) : like `:text`, but preserves spaces in the begining of lines (the indentation). Usefull for... markdown!
+ * `:text` (TextCleaner) : like `:string`, but preserves new lines (with a max of 2 successive new lines). useful when the field is rendered with the `simple_format` Rails helper.
+ * `:markdown` (MarkdownCleaner) : like `:text`, but preserves spaces in the beginning of lines (the indentation). useful for... markdown!
 
 
 

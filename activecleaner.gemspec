@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.test_files  = Dir.glob("spec/**/*")
   s.has_rdoc    = false
 
-  s.add_dependency "activemodel", "~> 3.1"
-  s.add_dependency "activesupport", "~> 3.1"
+  s.add_runtime_dependency "activemodel", ">= 3.1", "< 4.2"
+  s.add_runtime_dependency "activesupport", ">= 3.1", "< 4.2"
 
   s.add_development_dependency "rspec"
 

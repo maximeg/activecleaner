@@ -1,6 +1,9 @@
 source "http://rubygems.org"
 gemspec
 
+# Multi Gemfile testing
+gem "appraisal"
+
 # For Travis
 gem "rake"
 

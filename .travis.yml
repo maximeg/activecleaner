@@ -1,5 +1,9 @@
 rvm:
-  - 1.9.2
   - 1.9.3
+  - 2.0.0
+  - 2.1.2
 gemfile:
-  - Gemfile
+- gemfiles/rails31.gemfile
+- gemfiles/rails32.gemfile
+- gemfiles/rails4.gemfile
+- gemfiles/rails41.gemfile

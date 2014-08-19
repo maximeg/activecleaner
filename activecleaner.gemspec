@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
 
-  s.description = <<description
+  s.description = <<-TXT
     ActiveCleaner is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)
-description
+  TXT
 end

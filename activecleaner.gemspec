@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "activemodel", ">= 3.1", "< 4.2"
   s.add_runtime_dependency "activesupport", ">= 3.1", "< 4.2"
 
-  s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec", "~> 3.0.0"
 
   s.description = <<-TXT
     ActiveCleaner is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)

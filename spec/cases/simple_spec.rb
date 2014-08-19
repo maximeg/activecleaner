@@ -26,40 +26,40 @@ describe "Case: a simple post" do
 
     subject { Post._cleaners }
 
-    it { should have(3).fields_to_clean }
+    it "has 3 cleaners" do
+      expect(subject.length).to eq(3)
+    end
 
     it "includes a StringCleaner for #title" do
-      subject[:title].first.should eq(ActiveCleaner::StringCleaner.new(:title))
+      expect(subject[:title].first).to eq(ActiveCleaner::StringCleaner.new(:title))
     end
 
     it "includes a StringCleaner for #name" do
-      subject[:name].first.should eq(ActiveCleaner::StringCleaner.new(:name))
+      expect(subject[:name].first).to eq(ActiveCleaner::StringCleaner.new(:name))
     end
 
     it "includes a TextCleaner for #body" do
-      subject[:body].first.should eq(ActiveCleaner::TextCleaner.new(:body))
+      expect(subject[:body].first).to eq(ActiveCleaner::TextCleaner.new(:body))
     end
 
   end # describe
 
   context "considering a post" do
 
-    before do
-      @post = Post.new
-    end
+    let(:subject) { Post.new }
 
     describe "#title, marked as to clean with no type" do
 
       it "is untouched when legit" do
-        @post.title = "A good title!"
-        @post.valid?
-        @post.title.should eq "A good title!"
+        subject.title = "A good title!"
+        subject.valid?
+        expect(subject.title).to eq("A good title!")
       end
 
       it "is cleaned as a string" do
-        @post.title = "  A  \n good  \t title!  "
-        @post.valid?
-        @post.title.should eq "A good title!"
+        subject.title = "  A  \n good  \t title!  "
+        subject.valid?
+        expect(subject.title).to eq("A good title!")
       end
 
     end # describe
@@ -67,15 +67,15 @@ describe "Case: a simple post" do
     describe "#name, marked as to clean as a string" do
 
       it "is untouched when legit" do
-        @post.name = "John Doe"
-        @post.valid?
-        @post.name.should eq "John Doe"
+        subject.name = "John Doe"
+        subject.valid?
+        expect(subject.name).to eq("John Doe")
       end
 
       it "is cleaned as a string" do
-        @post.name = "  \t  John  \n  Doe     "
-        @post.valid?
-        @post.name.should eq "John Doe"
+        subject.name = "  \t  John  \n  Doe     "
+        subject.valid?
+        expect(subject.name).to eq("John Doe")
       end
 
     end # describe
@@ -83,15 +83,15 @@ describe "Case: a simple post" do
     describe "#body, marked as to clean as a text" do
 
       it "is untouched when legit" do
-        @post.body = "Lorem ipsum\ndolor sit amet.\n\nLorem."
-        @post.valid?
-        @post.body.should eq "Lorem ipsum\ndolor sit amet.\n\nLorem."
+        subject.body = "Lorem ipsum\ndolor sit amet.\n\nLorem."
+        subject.valid?
+        expect(subject.body).to eq("Lorem ipsum\ndolor sit amet.\n\nLorem.")
       end
 
       it "is cleaned as a text" do
-        @post.body = "Lorem \t ipsum \t \n   dolor \t sit \t amet.\n\n\nLorem."
-        @post.valid?
-        @post.body.should eq "Lorem ipsum\ndolor sit amet.\n\nLorem."
+        subject.body = "Lorem \t ipsum \t \n   dolor \t sit \t amet.\n\n\nLorem."
+        subject.valid?
+        expect(subject.body).to eq("Lorem ipsum\ndolor sit amet.\n\nLorem.")
       end
 
     end # describe

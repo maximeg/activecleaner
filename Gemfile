@@ -7,5 +7,5 @@ gem "appraisal"
 # For Travis
 gem "rake"
 
-gem "guard-rspec"
-gem "rb-inotify", "~> 0.8.8"
+# Guard
+gem 'guard-rspec', '>= 4.2.8', require: false

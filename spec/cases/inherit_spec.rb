@@ -31,14 +31,16 @@ describe "Case: an ad and his inherited car ad" do
 
     subject { Ad._cleaners }
 
-    it { should have(2).fields_to_clean }
+    it "has 2 cleaners" do
+      expect(subject.length).to eq(2)
+    end
 
     it "includes a StringCleaner for #title" do
-      subject[:title].first.should eq(ActiveCleaner::StringCleaner.new(:title))
+      expect(subject[:title].first).to eq(ActiveCleaner::StringCleaner.new(:title))
     end
 
     it "includes a StringCleaner for #name" do
-      subject[:name].first.should eq(ActiveCleaner::StringCleaner.new(:name))
+      expect(subject[:name].first).to eq(ActiveCleaner::StringCleaner.new(:name))
     end
 
   end # describe
@@ -47,40 +49,40 @@ describe "Case: an ad and his inherited car ad" do
 
     subject { CarAd._cleaners }
 
-    it { should have(3).fields_to_clean }
+    it "has 3 cleaners" do
+      expect(subject.length).to eq(3)
+    end
 
     it "includes a StringCleaner for #title" do
-      subject[:title].first.should eq(ActiveCleaner::StringCleaner.new(:title))
+      expect(subject[:title].first).to eq(ActiveCleaner::StringCleaner.new(:title))
     end
 
     it "includes a StringCleaner for #name" do
-      subject[:name].first.should eq(ActiveCleaner::StringCleaner.new(:name))
+      expect(subject[:name].first).to eq(ActiveCleaner::StringCleaner.new(:name))
     end
 
     it "includes a TextCleaner for #body" do
-      subject[:body].first.should eq(ActiveCleaner::TextCleaner.new(:body))
+      expect(subject[:body].first).to eq(ActiveCleaner::TextCleaner.new(:body))
     end
 
   end # describe
 
   context "considering a car ad" do
 
-    before do
-      @car_ad = CarAd.new
-    end
+    let(:subject) { CarAd.new }
 
     describe "#title, marked as to clean with no type" do
 
       it "is untouched when legit" do
-        @car_ad.title = "A good title!"
-        @car_ad.valid?
-        @car_ad.title.should eq "A good title!"
+        subject.title = "A good title!"
+        subject.valid?
+        expect(subject.title).to eq("A good title!")
       end
 
       it "is cleaned as a string" do
-        @car_ad.title = "  A  \n good  \t title!  "
-        @car_ad.valid?
-        @car_ad.title.should eq "A good title!"
+        subject.title = "  A  \n good  \t title!  "
+        subject.valid?
+        expect(subject.title).to eq("A good title!")
       end
 
     end # describe
@@ -88,15 +90,15 @@ describe "Case: an ad and his inherited car ad" do
     describe "#name, marked as to clean as a string" do
 
       it "is untouched when legit" do
-        @car_ad.name = "John Doe"
-        @car_ad.valid?
-        @car_ad.name.should eq "John Doe"
+        subject.name = "John Doe"
+        subject.valid?
+        expect(subject.name).to eq("John Doe")
       end
 
       it "is cleaned as a string" do
-        @car_ad.name = "  \t  John  \n  Doe     "
-        @car_ad.valid?
-        @car_ad.name.should eq "John Doe"
+        subject.name = "  \t  John  \n  Doe     "
+        subject.valid?
+        expect(subject.name).to eq("John Doe")
       end
 
     end # describe
@@ -104,15 +106,15 @@ describe "Case: an ad and his inherited car ad" do
     describe "#body, marked as to clean as a text" do
 
       it "is untouched when legit" do
-        @car_ad.body = "Lorem ipsum\ndolor sit amet.\n\nLorem."
-        @car_ad.valid?
-        @car_ad.body.should eq "Lorem ipsum\ndolor sit amet.\n\nLorem."
+        subject.body = "Lorem ipsum\ndolor sit amet.\n\nLorem."
+        subject.valid?
+        expect(subject.body).to eq("Lorem ipsum\ndolor sit amet.\n\nLorem.")
       end
 
       it "is cleaned as a text" do
-        @car_ad.body = "Lorem \t ipsum \t \n   dolor \t sit \t amet.\n\n\nLorem."
-        @car_ad.valid?
-        @car_ad.body.should eq "Lorem ipsum\ndolor sit amet.\n\nLorem."
+        subject.body = "Lorem \t ipsum \t \n   dolor \t sit \t amet.\n\n\nLorem."
+        subject.valid?
+        expect(subject.body).to eq("Lorem ipsum\ndolor sit amet.\n\nLorem.")
       end
 
     end # describe

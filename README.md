@@ -28,6 +28,7 @@ end
  * `:string` (StringCleaner, the default one) : cleans all the space characters. It turns `"   A  \n  \t title   \t  "` into `"A title"`.
  * `:text` (TextCleaner) : like `:string`, but preserves new lines (with a max of 2 successive new lines). useful when the field is rendered with the `simple_format` Rails helper.
  * `:markdown` (MarkdownCleaner) : like `:text`, but preserves spaces in the beginning of lines (the indentation). useful for... markdown!
+ * `:utf8mb3` (Utf8mb3Cleaner) : removes all 4-bytes encoded chars in UTF8 strings that mess with the `utf8` encoding in MySQL (iOS6 emojis for example).
 
 
 

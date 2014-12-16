@@ -9,11 +9,12 @@ require "spec_helper"
 class OptimizedPost
   include ActiveCleaner
 
-  attr_accessor :title, :name, :body
+  attr_accessor :title, :name, :body, :user_generated_content
 
   clean :title, nilify: true
   clean :name, as: :string, nilify: true
   clean :body, as: :text, nilify: true
+  clean :user_generated_content, as: :utf8mb3, nilify: true
 end
 
 
@@ -26,8 +27,8 @@ describe "Case: a simple post with nulify" do
 
     subject { OptimizedPost._cleaners }
 
-    it "has 3 cleaners" do
-      expect(subject.length).to eq(3)
+    it "has 4 cleaners" do
+      expect(subject.length).to eq(4)
     end
 
     it "includes a StringCleaner for #title" do
@@ -40,6 +41,10 @@ describe "Case: a simple post with nulify" do
 
     it "includes a TextCleaner for #body" do
       expect(subject[:body].first).to eq(ActiveCleaner::TextCleaner.new(:body, nilify: true))
+    end
+
+    it "includes a Utf8mb3Cleaner for #user_generated_content" do
+      expect(subject[:user_generated_content].first).to eq(ActiveCleaner::Utf8mb3Cleaner.new(:user_generated_content, nilify: true))
     end
 
   end # describe
@@ -92,6 +97,22 @@ describe "Case: a simple post with nulify" do
         subject.title = " \n \t "
         subject.valid?
         expect(subject.title).to be_nil
+      end
+
+    end # describe
+
+    describe "#user_generated_content, marked as to clean as utf8mb3" do
+
+      it "is untouched when legit" do
+        subject.user_generated_content = "A good user generated content!"
+        subject.valid?
+        expect(subject.user_generated_content).to eq("A good user generated content!")
+      end
+
+      it "is nulified" do
+        subject.user_generated_content = "😀"
+        subject.valid?
+        expect(subject.user_generated_content).to be_nil
       end
 
     end # describe

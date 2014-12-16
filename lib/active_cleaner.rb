@@ -10,6 +10,7 @@ require 'active_cleaner/base_cleaner'
 require 'active_cleaner/string_cleaner'
 require 'active_cleaner/text_cleaner'
 require 'active_cleaner/markdown_cleaner'
+require 'active_cleaner/utf8mb3_cleaner'
 
 require 'active_cleaner/version'
 

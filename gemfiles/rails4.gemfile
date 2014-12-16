@@ -4,8 +4,7 @@ source "http://rubygems.org"
 
 gem "appraisal"
 gem "rake"
-gem "guard-rspec"
-gem "rb-inotify", "~> 0.8.8"
+gem "guard-rspec", ">= 4.2.8", :require => false
 gem "activemodel", "~> 4.0.0"
 gem "activesupport", "~> 4.0.0"
 

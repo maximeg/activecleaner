@@ -5,7 +5,7 @@ module ActiveCleaner
 
     def clean_value(old_value, record=nil)
       unless old_value.nil?
-        old_value.each_char.select { |char| char.bytes.length < 4 }.join('')
+        old_value.each_char.select { |char| char.bytesize < 4 }.join('')
       end
     end
 

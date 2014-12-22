@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.9"
   s.required_rubygems_version = ">= 1.3.6"
 
-  s.add_runtime_dependency "activemodel", ">= 3.1", "< 4.2"
-  s.add_runtime_dependency "activesupport", ">= 3.1", "< 4.2"
+  s.add_runtime_dependency "activemodel", ">= 3.1", "< 5"
+  s.add_runtime_dependency "activesupport", ">= 3.1", "< 5"
 
   s.add_development_dependency 'rspec', '~> 3.0', '>= 3.0.0'
 

@@ -4,7 +4,8 @@ module ActiveCleaner
   class MarkdownCleaner < BaseCleaner
 
     def clean_value(old_value, record=nil)
-      unless old_value.nil?
+      case old_value
+      when String
         value = old_value.dup
 
         value.strip!
@@ -25,6 +26,8 @@ module ActiveCleaner
         value.gsub!(/__SPACE__/, " ")
 
         value
+      else
+        old_value
       end
     end
 

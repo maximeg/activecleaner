@@ -4,7 +4,8 @@ module ActiveCleaner
   class TextCleaner < BaseCleaner
 
     def clean_value(old_value, record=nil)
-      unless old_value.nil?
+      case old_value
+      when String
         value = old_value.dup
 
         value.strip!
@@ -23,6 +24,8 @@ module ActiveCleaner
         value.gsub!(/__NEW_LINE__/, "\n")
 
         value
+      else
+        old_value
       end
     end
 

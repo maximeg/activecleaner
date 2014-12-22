@@ -7,6 +7,13 @@ describe ActiveCleaner::TextCleaner do
 
   describe "#clean_value" do
 
+    it "doesn't touch non string value" do
+      expect(cleaner.clean_value(nil)).to eq(nil)
+      expect(cleaner.clean_value(true)).to eq(true)
+      expect(cleaner.clean_value(false)).to eq(false)
+      expect(cleaner.clean_value(10)).to eq(10)
+    end
+
     it "doesn't touch legit value" do
       [
         "Lorem ipsum dolor sit amet.",

@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require "active_support"
-# require 'active_support/rails'
 require "active_model"
 
 require "active_cleaner/helper_methods"

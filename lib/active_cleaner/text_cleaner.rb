@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 module ActiveCleaner
+
   class TextCleaner < BaseCleaner
 
-    def clean_value(old_value, record=nil)
+    def clean_value(old_value, _record = nil)
       case old_value
       when String
         value = old_value.dup
@@ -30,4 +31,5 @@ module ActiveCleaner
     end
 
   end
+
 end

@@ -1,12 +1,10 @@
 # encoding: utf-8
-require 'spec_helper'
+require "spec_helper"
 
 describe ActiveCleaner::Utf8mb3Cleaner do
-
   let(:cleaner) { ActiveCleaner::Utf8mb3Cleaner.new(:title) }
 
   describe "#clean_value" do
-
     it "doesn't touch non string value" do
       expect(cleaner.clean_value(nil)).to eq(nil)
       expect(cleaner.clean_value(true)).to eq(true)
@@ -30,7 +28,5 @@ describe ActiveCleaner::Utf8mb3Cleaner do
     it "kepts japanese chars" do
       expect(cleaner.clean_value("ginkō is written as 銀行")).to eq("ginkō is written as 銀行")
     end
-
   end
-
 end

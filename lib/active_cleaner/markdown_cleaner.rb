@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 module ActiveCleaner
+
   class MarkdownCleaner < BaseCleaner
 
-    def clean_value(old_value, record=nil)
+    def clean_value(old_value, _record = nil)
       case old_value
       when String
         value = old_value.dup
@@ -15,7 +16,7 @@ module ActiveCleaner
 
         # protect stuff to keep with a markup
         value.gsub!(/\n/, "__NEW_LINE__")
-        value.gsub!(/(?<=__NEW_LINE__)\s+/) {|match| match.gsub(/\s/, "__SPACE__")}
+        value.gsub!(/(?<=__NEW_LINE__)\s+/) { |match| match.gsub(/\s/, "__SPACE__") }
 
         value.gsub!(/\s+/, " ")
         value.gsub!(/(__SPACE__|\s)*__NEW_LINE__\s*/, "__NEW_LINE__")
@@ -32,4 +33,5 @@ module ActiveCleaner
     end
 
   end
+
 end

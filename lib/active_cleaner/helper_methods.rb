@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 module ActiveCleaner
+
   module HelperMethods
 
     def clean(*attr_names)
@@ -17,8 +18,9 @@ module ActiveCleaner
     end
 
     def clean_with(cleaner)
-      self._cleaners[cleaner.attr_name] << cleaner
+      _cleaners[cleaner.attr_name] << cleaner
     end
 
   end
+
 end

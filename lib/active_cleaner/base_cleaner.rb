@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 module ActiveCleaner
+
   class BaseCleaner
 
     attr_reader :attr_name, :options
@@ -9,12 +10,12 @@ module ActiveCleaner
     def initialize(attr_name, options = {})
       @attr_name = attr_name
       @options = {
-        :nilify => false,
+        nilify: false,
       }.merge(options).freeze
     end
 
     def self.kind
-      @kind ||= name.split('::').last.underscore.sub(/_cleaner$/, '').to_sym
+      @kind ||= name.split("::").last.underscore.sub(/_cleaner$/, "").to_sym
     end
 
     def kind
@@ -31,12 +32,12 @@ module ActiveCleaner
       record.write_attribute_after_cleaning(attr_name, new_value) unless new_value == value
     end
 
-    def clean_value(value, record=nil)
+    def clean_value(_value, _record = nil)
       raise NotImplementedError, "Subclasses must implement a clean(value, record=nil) method."
     end
 
     # feel free to subclass for your custom cleaner
-    def nilify_value?(value, record=nil)
+    def nilify_value?(value, _record = nil)
       value == ""
     end
 
@@ -45,4 +46,5 @@ module ActiveCleaner
     end
 
   end
+
 end

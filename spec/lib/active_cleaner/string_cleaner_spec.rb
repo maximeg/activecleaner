@@ -1,12 +1,10 @@
 # encoding: utf-8
-require 'spec_helper'
+require "spec_helper"
 
 describe ActiveCleaner::StringCleaner do
-
   let(:cleaner) { ActiveCleaner::StringCleaner.new(:title) }
 
   describe "#clean_value" do
-
     it "doesn't touch non string value" do
       expect(cleaner.clean_value(nil)).to eq(nil)
       expect(cleaner.clean_value(true)).to eq(true)
@@ -44,7 +42,5 @@ describe ActiveCleaner::StringCleaner do
       expect(cleaner.clean_value("A    good    title!")).to eq("A good title!")
       expect(cleaner.clean_value("A  \n good  \t title!")).to eq("A good title!")
     end
-
   end
-
 end

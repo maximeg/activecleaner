@@ -1,3 +1,3 @@
 # encoding: utf-8
 
-require 'active_cleaner'
+require "active_cleaner"

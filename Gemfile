@@ -1,4 +1,6 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in rethought.gemspec
 gemspec
 
 # Multi Gemfile testing
@@ -7,5 +9,8 @@ gem "appraisal"
 # For Travis
 gem "rake"
 
-# Guard
-gem 'guard-rspec', '>= 4.2.8', require: false
+group :development do
+  # Guard
+  gem "guard-rspec", require: false
+  gem "terminal-notifier-guard", require: false # OS X
+end

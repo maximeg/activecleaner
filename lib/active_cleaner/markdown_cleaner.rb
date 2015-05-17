@@ -2,8 +2,36 @@
 
 module ActiveCleaner
 
+  # = MarkdownCleaner
+  #
+  # Cleans a string by squishing all the extra space characters, but preserves new lines
+  # (with a max of 2 successive new lines) and spaces in the beginning of lines (the indentation).
+  #
+  # Useful for Markdown.
+  #
+  # It turns <tt>"   My todo \n * todo 1 \n * todo 2   \t  "</tt> into <tt>"My todo\n * todo 1\n * todo 2"</tt>.
+  #
+  # == Options
+  #
+  # [:nilify]
+  #   Whether or not set the field to +nil+ when the field was or is cleaned to <tt>""</tt>.
+  #   Default to +false+.
+  #
+  # == Example
+  #
+  #   class Article
+  #     include ActiveCleaner
+  #
+  #     clean :body, as: :markdown
+  #   end
+  #
+  #   article = Article.new(body: "   My todo \n * todo 1 \n * todo 2   \t  ")
+  #   article.save
+  #   article.body
+  #   # => "My todo\n * todo 1\n * todo 2"
   class MarkdownCleaner < BaseCleaner
 
+    # Cleans the value.
     def clean_value(old_value, _record = nil)
       case old_value
       when String

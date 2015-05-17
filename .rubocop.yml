@@ -19,6 +19,9 @@ Style/AlignHash:
 Style/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/BracesAroundHashParameters:
   Enabled: false
 

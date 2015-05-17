@@ -13,6 +13,23 @@ require "active_cleaner/utf8mb3_cleaner"
 
 require "active_cleaner/version"
 
+# = ActiveCleaner
+#
+# See HelperMethods for the DSL.
+#
+# == Example
+#
+#   class Post
+#     include Mongoid::Document
+#     include ActiveCleaner
+#
+#     field :title
+#     field :subtitle
+#     clean :title, :subtitle, nilify: true
+#
+#     field :body
+#     clean :body, as: :text, nilify: true
+#   end
 module ActiveCleaner
 
   extend ActiveSupport::Concern
@@ -31,16 +48,19 @@ module ActiveCleaner
     set_callback :validate, :before, :run_cleaners!
   end # included
 
-  module ClassMethods
+  module ClassMethods #:nodoc:
 
     def inherited(base) #:nodoc:
       dup = _cleaners.dup
-      base._cleaners = dup.each { |k, v| dup[k] = v.dup }
+      base._cleaners = dup.each do |attr_name, cleaner|
+        dup[attr_name] = cleaner.dup
+      end
       super
     end
 
   end # ClassMethods
 
+  # Do run the cleaners
   def run_cleaners!
     _cleaners.each do |_attr_name, cleaners|
       cleaners.each do |cleaner|
@@ -51,10 +71,12 @@ module ActiveCleaner
     true
   end
 
+  # Method used by the cleaners to read the value of an attribute.
   def read_attribute_for_cleaning(attr_name)
     send(attr_name)
   end
 
+  # Method used by the cleaners to write the value of an attribute.
   def write_attribute_after_cleaning(attr_name, value)
     send(:"#{attr_name}=", value)
   end

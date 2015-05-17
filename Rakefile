@@ -29,3 +29,31 @@ RSpec::Core::RakeTask.new("spec:progress") do |spec|
 end
 
 task default: :spec
+
+#
+# Documentation
+#
+require "sdoc"
+require "rdoc/task"
+
+class MyRDocTask < RDoc::Task
+
+  def option_list
+    super.tap do |list|
+      list << "--github"
+    end
+  end
+
+end
+
+MyRDocTask.new(rdoc: "doc", clobber_rdoc: "doc:clobber", rerdoc: "doc:force") do |rdoc|
+  rdoc.generator = "sdoc"
+  rdoc.template = "rails"
+
+  rdoc.title = "ActiveCleaner API"
+
+  rdoc.main = "README.md"
+  rdoc.rdoc_dir = "doc"
+  rdoc.rdoc_files.add("lib/**/*.rb", "*.md")
+  rdoc.options << "--all"
+end

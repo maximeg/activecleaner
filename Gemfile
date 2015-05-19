@@ -16,7 +16,7 @@ group :development do
 
   # Quality
   gem "rubocop", ">= 0.30.1", require: false
-
-  # Documentation
-  gem "sdoc", require: false
 end
+
+# Documentation
+gem "sdoc", require: false

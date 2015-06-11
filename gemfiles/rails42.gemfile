@@ -11,6 +11,8 @@ gem "activesupport", "~> 4.2.0"
 group :development do
   gem "guard-rspec", :require => false
   gem "terminal-notifier-guard", :require => false
+  gem "mutant"
+  gem "mutant-rspec"
   gem "rubocop", ">= 0.30.1", :require => false
 end
 

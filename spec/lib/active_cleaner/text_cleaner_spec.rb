@@ -12,6 +12,13 @@ describe ActiveCleaner::TextCleaner do
       expect(cleaner.clean_value(10)).to eq(10)
     end
 
+    it "doesn't modify input string" do
+      input = "Lorem    ipsum"
+      expect {
+        cleaner.clean_value(input)
+      }.not_to change { input }
+    end
+
     it "doesn't touch legit value" do
       [
         "Lorem ipsum dolor sit amet.",
@@ -47,6 +54,11 @@ describe ActiveCleaner::TextCleaner do
     it "cleans repeted spaces" do
       expect(cleaner.clean_value("Lorem   ipsum   \n   dolor   sit   amet.")).to eq("Lorem ipsum\ndolor sit amet.")
       expect(cleaner.clean_value("Lorem \t ipsum \t \n   dolor \t sit \t amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+    end
+
+    it "cleans \\r" do
+      expect(cleaner.clean_value("Lorem ipsum\rdolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\r\ndolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     it "keeps two max succeeding new line" do

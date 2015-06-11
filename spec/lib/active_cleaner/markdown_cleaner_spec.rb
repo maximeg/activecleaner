@@ -12,6 +12,13 @@ describe ActiveCleaner::MarkdownCleaner do
       expect(cleaner.clean_value(10)).to eq(10)
     end
 
+    it "doesn't modify input string" do
+      input = "Lorem    ipsum"
+      expect {
+        cleaner.clean_value(input)
+      }.not_to change { input }
+    end
+
     it "doesn't touch legit value" do
       body = ""
       body << "= Title =\n"
@@ -48,6 +55,11 @@ describe ActiveCleaner::MarkdownCleaner do
     it "cleans repeted spaces" do
       expect(cleaner.clean_value("Lorem   ipsum   \ndolor   sit   amet.")).to eq("Lorem ipsum\ndolor sit amet.")
       expect(cleaner.clean_value("Lorem \t ipsum \t \ndolor \t sit \t amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+    end
+
+    it "cleans \\r" do
+      expect(cleaner.clean_value("Lorem ipsum\rdolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\r\ndolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     context "considering the spaces in the beggining of lines" do

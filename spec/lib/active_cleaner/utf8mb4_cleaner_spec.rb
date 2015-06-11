@@ -12,6 +12,13 @@ describe ActiveCleaner::Utf8mb3Cleaner do
       expect(cleaner.clean_value(10)).to eq(10)
     end
 
+    it "doesn't modify input string" do
+      input = "Lorem 😁 ipsum"
+      expect {
+        cleaner.clean_value(input)
+      }.not_to change { input }
+    end
+
     it "doesn't touch legit value" do
       expect(cleaner.clean_value("A good title!")).to eq("A good title!")
     end

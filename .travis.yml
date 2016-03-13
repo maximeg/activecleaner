@@ -10,4 +10,4 @@ gemfile:
   - gemfiles/rails4.gemfile
   - gemfiles/rails41.gemfile
   - gemfiles/rails42.gemfile
-bundler_args: --without development
+bundler_args: --without local

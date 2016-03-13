@@ -8,7 +8,7 @@ gem "sdoc", :require => false
 gem "activemodel", "~> 4.1.0"
 gem "activesupport", "~> 4.1.0"
 
-group :development do
+group :local do
   gem "guard-rspec", :require => false
   gem "terminal-notifier-guard", :require => false
   gem "mutant"

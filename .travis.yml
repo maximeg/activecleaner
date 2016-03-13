@@ -2,14 +2,28 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
-  - 2.1.6
-  - 2.2.2
+  - 2.1.8
+  - 2.2.4
+  - 2.3.0
 gemfile:
   - gemfiles/rails31.gemfile
   - gemfiles/rails32.gemfile
   - gemfiles/rails4.gemfile
   - gemfiles/rails41.gemfile
   - gemfiles/rails42.gemfile
+  - gemfiles/rails50.gemfile
+matrix:
+  exclude:
+    - gemfile: gemfiles/rails31.gemfile
+      rvm: 2.3.0
+    - gemfile: gemfiles/rails32.gemfile
+      rvm: 2.3.0
+    - gemfile: gemfiles/rails50.gemfile
+      rvm: 1.9.3
+    - gemfile: gemfiles/rails50.gemfile
+      rvm: 2.0.0
+    - gemfile: gemfiles/rails50.gemfile
+      rvm: 2.1.8
 bundler_args: --without local
 before_install:
   - gem update --system

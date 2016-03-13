@@ -11,3 +11,6 @@ gemfile:
   - gemfiles/rails41.gemfile
   - gemfiles/rails42.gemfile
 bundler_args: --without local
+before_install:
+  - gem update --system
+  - gem install bundler

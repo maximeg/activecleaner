@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require "active_cleaner/version"
 
@@ -14,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.license     = "MIT"
 
-  s.files       = %w( README.md LICENSE )
+  s.files       = %w[README.md LICENSE]
   s.files += Dir.glob("lib/**/*")
   s.require_paths = ["lib"]
   s.test_files  = Dir.glob("spec/**/*")
@@ -27,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "activesupport", ">= 3.1", "< 5.1"
 
   s.add_development_dependency "rspec", "~> 3.4"
+  s.add_development_dependency "rubocop", "0.48.1"
 
   s.description = <<-TXT
     ActiveCleaner is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)

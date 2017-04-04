@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 appraise "rails31" do
   gem "activemodel", "~> 3.1.0"
   gem "activesupport", "~> 3.1.0"

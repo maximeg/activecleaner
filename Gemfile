@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 # Specify your gem's dependencies in rethought.gemspec
@@ -17,9 +19,6 @@ group :local do
   # Coverage
   gem "mutant"
   gem "mutant-rspec"
-
-  # Quality
-  gem "rubocop", ">= 0.30.1", require: false
 end
 
 # Documentation

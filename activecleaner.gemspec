@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.test_files  = Dir.glob("spec/**/*")
   s.has_rdoc    = false
 
-  s.required_ruby_version = ">= 2.0.0"
+  s.required_ruby_version = ">= 2.1.0"
 
   s.add_runtime_dependency "activemodel", ">= 4.1", "< 5.1"
   s.add_runtime_dependency "activesupport", ">= 4.1", "< 5.1"

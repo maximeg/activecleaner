@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-  - 2.0.0
   - 2.1.10
   - 2.2.7
   - 2.3.4
@@ -13,8 +12,6 @@ matrix:
   exclude:
     - gemfile: gemfiles/rails41.gemfile
       rvm: 2.4.1
-    - gemfile: gemfiles/rails50.gemfile
-      rvm: 2.0.0
     - gemfile: gemfiles/rails50.gemfile
       rvm: 2.1.10
 bundler_args: --without local

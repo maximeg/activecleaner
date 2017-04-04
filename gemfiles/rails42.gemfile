@@ -13,7 +13,6 @@ group :local do
   gem "terminal-notifier-guard", :require => false
   gem "mutant"
   gem "mutant-rspec"
-  gem "rubocop", ">= 0.30.1", :require => false
 end
 
 gemspec :path => "../"

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date        = Time.now.strftime("%Y-%m-%d")
 
   s.authors     = ["Maxime Garcia"]
-  s.email       = ["maxime.garcia@free.fr"]
+  s.email       = ["maxime.garcia@gmail.com"]
 
   s.summary     = "Clean the fields in your models"
   s.homepage    = "http://github.com/maximeg/activecleaner"
@@ -22,11 +22,10 @@ Gem::Specification.new do |s|
   s.test_files  = Dir.glob("spec/**/*")
   s.has_rdoc    = false
 
-  s.required_ruby_version = ">= 1.9"
-  s.required_rubygems_version = ">= 1.3.6"
+  s.required_ruby_version = ">= 2.0.0"
 
-  s.add_runtime_dependency "activemodel", ">= 3.1", "< 5.1"
-  s.add_runtime_dependency "activesupport", ">= 3.1", "< 5.1"
+  s.add_runtime_dependency "activemodel", ">= 4.1", "< 5.1"
+  s.add_runtime_dependency "activesupport", ">= 4.1", "< 5.1"
 
   s.add_development_dependency "rspec", "~> 3.4"
   s.add_development_dependency "rubocop", "0.48.1"

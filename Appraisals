@@ -12,3 +12,7 @@ appraise "rails50" do
   gem "activemodel", "~> 5.0.0"
   gem "activesupport", "~> 5.0.0"
 end
+appraise "rails51" do
+  gem "activemodel", "~> 5.1.0"
+  gem "activesupport", "~> 5.1.0"
+end

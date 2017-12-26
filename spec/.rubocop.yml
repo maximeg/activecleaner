@@ -6,6 +6,9 @@ Lint/AmbiguousBlockAssociation:
 Metrics/BlockLength:
   Enabled: false
 
+Style/EmptyLiteral:
+  Enabled: false # tmp, replace String.new by "", not ok for Ruby 2.3
+
 Style/BlockDelimiters:
   Enabled: false
 

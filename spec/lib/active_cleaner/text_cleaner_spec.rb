@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -44,28 +43,39 @@ describe ActiveCleaner::TextCleaner do
     end
 
     it "cleans leading and trailing spaces" do
-      expect(cleaner.clean_value(" Lorem ipsum\ndolor sit amet. ")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value(" Lorem ipsum\ndolor sit amet. "))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
+
     it "cleans leading and trailing tabs" do
-      expect(cleaner.clean_value("\tLorem ipsum\ndolor sit amet.\t")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("\tLorem ipsum\ndolor sit amet.\t"))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
+
     it "cleans leading and trailing lines" do
-      expect(cleaner.clean_value("\nLorem ipsum\ndolor sit amet.\n")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("\nLorem ipsum\ndolor sit amet.\n"))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     it "cleans repeted spaces" do
-      expect(cleaner.clean_value("Lorem   ipsum   \n   dolor   sit   amet.")).to eq("Lorem ipsum\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem \t ipsum \t \n   dolor \t sit \t amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem   ipsum   \n   dolor   sit   amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem \t ipsum \t \n   dolor \t sit \t amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     it "cleans \\r" do
-      expect(cleaner.clean_value("Lorem ipsum\rdolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem ipsum\r\ndolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\rdolor sit amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\r\ndolor sit amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     it "keeps two max succeeding new line" do
-      expect(cleaner.clean_value("Lorem ipsum\n\n\ndolor sit amet.")).to eq("Lorem ipsum\n\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem ipsum\n\n\n\ndolor sit amet.")).to eq("Lorem ipsum\n\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\n\n\ndolor sit amet."))
+        .to eq("Lorem ipsum\n\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\n\n\n\ndolor sit amet."))
+        .to eq("Lorem ipsum\n\ndolor sit amet.")
     end
   end
 end

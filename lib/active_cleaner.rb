@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 require "active_support"
@@ -47,19 +46,20 @@ module ActiveCleaner
     self._cleaners = Hash.new { |h, k| h[k] = [] }
 
     set_callback :validate, :before, :run_cleaners!
-  end # included
+  end
 
   module ClassMethods #:nodoc:
 
     def inherited(base) #:nodoc:
       dup = _cleaners.dup
-      base._cleaners = dup.each do |attr_name, cleaner|
-        dup[attr_name] = cleaner.dup
-      end
+      base._cleaners =
+        dup.each do |attr_name, cleaner|
+          dup[attr_name] = cleaner.dup
+        end
       super
     end
 
-  end # ClassMethods
+  end
 
   # Do run the cleaners
   def run_cleaners!

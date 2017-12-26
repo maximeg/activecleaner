@@ -1,8 +1,6 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 module ActiveCleaner
-
   # = Utf8mb3Cleaner
   #
   # Cleans a string by removes all 4-bytes encoded chars in UTF8 strings that mess with
@@ -44,5 +42,4 @@ module ActiveCleaner
     end
 
   end
-
 end

@@ -1,8 +1,6 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 module ActiveCleaner
-
   # = StringCleaner
   #
   # Cleans a string by squishing all the extra space characters.
@@ -45,5 +43,4 @@ module ActiveCleaner
     end
 
   end
-
 end

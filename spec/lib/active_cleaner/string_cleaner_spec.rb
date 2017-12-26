@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -40,9 +39,11 @@ describe ActiveCleaner::StringCleaner do
     it "cleans leading and trailing spaces" do
       expect(cleaner.clean_value("  A good title!  ")).to eq("A good title!")
     end
+
     it "cleans leading and trailing tabs" do
       expect(cleaner.clean_value("\tA good title!\t")).to eq("A good title!")
     end
+
     it "cleans leading and trailing lines" do
       expect(cleaner.clean_value("\nA good title!\n")).to eq("A good title!")
     end

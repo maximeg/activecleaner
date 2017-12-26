@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -22,7 +21,7 @@ describe ActiveCleaner::MarkdownCleaner do
     end
 
     it "doesn't touch legit value" do
-      body = String.new
+      body = ""
       body << "= Title =\n"
       body << "\n"
       body << "A first paragraph.\n"
@@ -55,28 +54,37 @@ describe ActiveCleaner::MarkdownCleaner do
     end
 
     it "cleans repeted spaces" do
-      expect(cleaner.clean_value("Lorem   ipsum   \ndolor   sit   amet.")).to eq("Lorem ipsum\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem \t ipsum \t \ndolor \t sit \t amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem   ipsum   \ndolor   sit   amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem \t ipsum \t \ndolor \t sit \t amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     it "cleans \\r" do
-      expect(cleaner.clean_value("Lorem ipsum\rdolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem ipsum\r\ndolor sit amet.")).to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\rdolor sit amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\r\ndolor sit amet."))
+        .to eq("Lorem ipsum\ndolor sit amet.")
     end
 
     context "considering the spaces in the beggining of lines" do
       it "preserves them" do
-        expect(cleaner.clean_value("Lorem ipsum\n   dolor sit amet.")).to eq("Lorem ipsum\n   dolor sit amet.")
+        expect(cleaner.clean_value("Lorem ipsum\n   dolor sit amet."))
+          .to eq("Lorem ipsum\n   dolor sit amet.")
       end
       it "clears line full of spaces" do
-        expect(cleaner.clean_value("Lorem ipsum   \n   \n   dolor sit amet.")).to eq("Lorem ipsum\n\n   dolor sit amet.")
+        expect(cleaner.clean_value("Lorem ipsum   \n   \n   dolor sit amet."))
+          .to eq("Lorem ipsum\n\n   dolor sit amet.")
       end
     end
 
     it "keeps two max succeeding new line" do
-      expect(cleaner.clean_value("Lorem ipsum\n\n\ndolor sit amet.")).to eq("Lorem ipsum\n\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem ipsum\n\n\n\ndolor sit amet.")).to eq("Lorem ipsum\n\ndolor sit amet.")
-      expect(cleaner.clean_value("Lorem ipsum\n  \n  \n  \ndolor sit amet.")).to eq("Lorem ipsum\n\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\n\n\ndolor sit amet."))
+        .to eq("Lorem ipsum\n\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\n\n\n\ndolor sit amet."))
+        .to eq("Lorem ipsum\n\ndolor sit amet.")
+      expect(cleaner.clean_value("Lorem ipsum\n  \n  \n  \ndolor sit amet."))
+        .to eq("Lorem ipsum\n\ndolor sit amet.")
     end
   end
 end

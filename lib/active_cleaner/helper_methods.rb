@@ -1,8 +1,6 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 module ActiveCleaner
-
   # Defines the DSL methods available in your model.
   module HelperMethods
 
@@ -49,5 +47,4 @@ module ActiveCleaner
     end
 
   end
-
 end

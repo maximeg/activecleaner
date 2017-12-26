@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -45,9 +44,10 @@ describe "Case: a simple post with nulify" do
     end
 
     it "includes a Utf8mb3Cleaner for #user_generated_content" do
-      expect(subject[:user_generated_content].first).to eq(ActiveCleaner::Utf8mb3Cleaner.new(:user_generated_content, nilify: true))
+      expect(subject[:user_generated_content].first)
+        .to eq(ActiveCleaner::Utf8mb3Cleaner.new(:user_generated_content, nilify: true))
     end
-  end # describe
+  end
 
   context "considering a post" do
     let(:subject) { OptimizedPost.new }
@@ -64,7 +64,7 @@ describe "Case: a simple post with nulify" do
         subject.valid?
         expect(subject.title).to be_nil
       end
-    end # describe
+    end
 
     describe "#name, marked as to clean as a string" do
       it "is untouched when legit" do
@@ -78,7 +78,7 @@ describe "Case: a simple post with nulify" do
         subject.valid?
         expect(subject.title).to be_nil
       end
-    end # describe
+    end
 
     describe "#body, marked as to clean as a text" do
       it "is untouched when legit" do
@@ -92,7 +92,7 @@ describe "Case: a simple post with nulify" do
         subject.valid?
         expect(subject.title).to be_nil
       end
-    end # describe
+    end
 
     describe "#user_generated_content, marked as to clean as utf8mb3" do
       it "is untouched when legit" do
@@ -106,6 +106,6 @@ describe "Case: a simple post with nulify" do
         subject.valid?
         expect(subject.user_generated_content).to be_nil
       end
-    end # describe
-  end # context
-end # describe
+    end
+  end
+end

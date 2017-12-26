@@ -4,15 +4,15 @@ source "https://rubygems.org"
 
 gem "appraisal"
 gem "rake"
-gem "sdoc", :require => false
+gem "sdoc", require: false
 gem "activemodel", "~> 4.1.0"
 gem "activesupport", "~> 4.1.0"
 
 group :local do
-  gem "guard-rspec", :require => false
-  gem "terminal-notifier-guard", :require => false
+  gem "guard-rspec", require: false
+  gem "terminal-notifier-guard", require: false
   gem "mutant"
   gem "mutant-rspec"
 end
 
-gemspec :path => "../"
+gemspec path: "../"

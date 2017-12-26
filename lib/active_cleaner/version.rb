@@ -5,7 +5,7 @@ module ActiveCleaner
   module Version
 
     # The version as string.
-    STRING = "0.3.1".freeze
+    STRING = "0.3.2".freeze
 
   end
 end

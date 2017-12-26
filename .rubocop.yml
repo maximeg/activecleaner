@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
     - 'bin/*'
-  TargetRubyVersion: 2.1
+  TargetRubyVersion: 2.2
 
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent

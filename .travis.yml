@@ -1,9 +1,10 @@
 language: ruby
 rvm:
   - 2.1.10
-  - 2.2.7
-  - 2.3.4
-  - 2.4.1
+  - 2.2.9
+  - 2.3.6
+  - 2.4.3
+  - 2.5.0
 gemfile:
   - gemfiles/rails41.gemfile
   - gemfiles/rails42.gemfile
@@ -12,7 +13,9 @@ gemfile:
 matrix:
   exclude:
     - gemfile: gemfiles/rails41.gemfile
-      rvm: 2.4.1
+      rvm: 2.4.3
+    - gemfile: gemfiles/rails41.gemfile
+      rvm: 2.5.0
     - gemfile: gemfiles/rails50.gemfile
       rvm: 2.1.10
     - gemfile: gemfiles/rails51.gemfile

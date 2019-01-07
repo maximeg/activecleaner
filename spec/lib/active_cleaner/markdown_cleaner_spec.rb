@@ -21,7 +21,7 @@ describe ActiveCleaner::MarkdownCleaner do
     end
 
     it "doesn't touch legit value" do
-      body = String.new
+      body = +""
       body << "= Title =\n"
       body << "\n"
       body << "A first paragraph.\n"

@@ -1,5 +1,15 @@
-.bundle
-Gemfile.lock
-gemfiles/*.lock
-activecleaner-*.gem
-doc
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/gemfiles/.bundle/
+/gemfiles/*.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+/activecleaner-*.gem
+
+# rspec failure tracking
+.rspec_status

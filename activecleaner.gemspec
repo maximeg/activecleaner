@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.test_files = Dir.glob("spec/**/*")
 
-  s.required_ruby_version = ">= 2.2.0"
+  s.required_ruby_version = ">= 2.3.0"
 
   s.add_runtime_dependency("activemodel", ">= 4.2", "< 5.2")
   s.add_runtime_dependency("activesupport", ">= 4.2", "< 5.2")

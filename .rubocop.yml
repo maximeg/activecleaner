@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'bin/*'
+    - 'gemfiles/*'
   TargetRubyVersion: 2.3
 
 Layout/AccessModifierIndentation:
@@ -22,6 +23,9 @@ Layout/EmptyLinesAroundClassBody:
 
 Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines_except_namespace
+
+Layout/EndAlignment:
+  AutoCorrect: true
 
 Layout/ExtraSpacing:
   AllowForAlignment: false
@@ -60,9 +64,6 @@ Layout/SpaceAroundOperators:
 Layout/SpaceBeforeFirstArg:
   AllowForAlignment: false
 
-Lint/EndAlignment:
-  AutoCorrect: true
-
 Lint/RedundantWithIndex:
   Enabled: true
 
@@ -71,14 +72,14 @@ Lint/UnusedMethodArgument:
   IgnoreEmptyMethods: true
 
 Metrics/AbcSize:
-  Enabled: false # todo
+  Enabled: true
   Max: 20 # default: 15
 
 Metrics/BlockLength:
-  Enabled: false # todo
+  Enabled: true
 
 Metrics/CyclomaticComplexity:
-  Enabled: false # todo
+  Enabled: true
   Max: 10 # default: 6
 
 Metrics/LineLength:
@@ -88,27 +89,25 @@ Metrics/LineLength:
     - "^ *#" # comments
 
 Metrics/MethodLength:
-  Enabled: false # todo
-  Exclude:
-    - "db/migrate/*"
+  Enabled: false
   Max: 12 # default: 10
 
 Metrics/PerceivedComplexity:
-  Enabled: false # todo
+  Enabled: true
   Max: 10 # default: 7
 
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
-Performance/HashEachMethods:
-  Enabled: false
-
-Style/AsciiComments:
+Style/AccessModifierDeclarations:
   Enabled: false
 
 Style/AndOr:
   Enabled: true
   EnforcedStyle: conditionals
+
+Style/AsciiComments:
+  Enabled: false
 
 Style/BracesAroundHashParameters:
   Enabled: false
@@ -119,17 +118,8 @@ Style/Dir:
 Style/Documentation:
   Enabled: false
 
-Style/FormatStringToken:
-  Exclude:
-    - "config/routes.rb"
-    - "config/routes/*"
-
 Style/FrozenStringLiteralComment:
-  Enabled: false # we'll do later
-
-Style/Lambda:
-  Enabled: false
-
+  Enabled: true
 
 Style/MethodCallWithArgsParentheses:
   Enabled: true # false by default
@@ -153,7 +143,7 @@ Style/MethodCallWithArgsParentheses:
     - task
 
 Style/ModuleFunction:
-  Enabled: false
+  EnforcedStyle: extend_self
 
 Style/ReturnNil:
   Enabled: true
@@ -172,75 +162,8 @@ Style/StringLiteralsInInterpolation:
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: no_comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
 
-#
-# Temporary disabled
-#
-
-Layout/EmptyLinesAroundArguments:
-  Enabled: false # buggy yet
-
-Lint/IneffectiveAccessModifier:
-  Enabled: false
-
-Lint/MissingCopEnableDirective:
-  Enabled: false
-
-Lint/RescueException:
-  Enabled: false
-
-Lint/ShadowedException:
-  Enabled: false
-
-Metrics/BlockNesting:
-  Enabled: false
-
-Metrics/ClassLength:
-  Enabled: false
-
-Metrics/ModuleLength:
-  Enabled: false
-
-Metrics/ParameterLists:
-  Enabled: false
-
-Naming/AccessorMethodName:
-  Enabled: false
-
-Naming/PredicateName:
-  Enabled: false
-
-Security/Eval:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/ClassVars:
-  Enabled: false
-
-Style/DateTime:
-  Enabled: false
-
-Style/ExtendSelf:
-  Enabled: false
-
-Style/FormatStringToken:
-  Enabled: false # issue with strftime
-
-Style/GuardClause:
-  Enabled: false
-
-Style/MixinUsage:
-  Enabled: false
-
-Style/NumericPredicate:
-  Enabled: false
-
-Style/SafeNavigation:
-  Enabled: false
-
-Style/StructInheritance:
-  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma

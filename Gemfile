@@ -5,9 +5,6 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in rethought.gemspec
 gemspec
 
-# Multi Gemfile testing
-gem "appraisal"
-
 # For Travis
 gem "rake"
 

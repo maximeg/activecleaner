@@ -4,8 +4,8 @@ source "https://rubygems.org"
 
 gem "rake"
 gem "sdoc", require: false
-gem "activemodel", "~> 5.0.0"
-gem "activesupport", "~> 5.0.0"
+gem "activemodel", "~> 5.2.0"
+gem "activesupport", "~> 5.2.0"
 
 group :local do
   gem "guard-rspec", require: false

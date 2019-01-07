@@ -2,7 +2,6 @@
 
 source "https://rubygems.org"
 
-gem "appraisal"
 gem "rake"
 gem "sdoc", require: false
 gem "activemodel", "~> 4.2.0"

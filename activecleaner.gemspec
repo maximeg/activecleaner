@@ -28,7 +28,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency("appraisal", "~> 2.2")
   s.add_development_dependency("rspec", "~> 3.4")
-  s.add_development_dependency("rubocop", "0.62.0")
+  s.add_development_dependency("rubocop", "0.75.0")
+  s.add_development_dependency("rubocop-performance", "1.5.0")
 
   s.description = <<-TXT
     ActiveCleaner is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)

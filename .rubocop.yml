@@ -1,19 +1,25 @@
+require:
+  - rubocop-performance
+
+inherit_mode:
+  merge:
+    - Include
+    - Exclude
+    - AllowedNames
+
 AllCops:
   Exclude:
     - "bin/*"
     - "gemfiles/*"
   TargetRubyVersion: 2.3
 
-Layout/AccessModifierIndentation:
-  EnforcedStyle: indent
-  SupportedStyles:
-    - outdent
-    - indent
+Layout/AlignArguments:
+  EnforcedStyle: with_fixed_indentation
 
 Layout/AlignHash:
   EnforcedHashRocketStyle: key
   EnforcedColonStyle: key
-  EnforcedLastArgumentHashStyle: always_inspect
+  EnforcedLastArgumentHashStyle: ignore_implicit
 
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
@@ -31,25 +37,25 @@ Layout/ExtraSpacing:
   AllowForAlignment: false
 
 Layout/FirstArrayElementLineBreak:
-  Enabled: true
+  Enabled: true # default: false
 
 Layout/FirstHashElementLineBreak:
-  Enabled: true
+  Enabled: true # default: false
 
 Layout/FirstMethodArgumentLineBreak:
-  Enabled: true
+  Enabled: true # default: false
 
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   EnforcedStyle: consistent
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
 Layout/MultilineAssignmentLayout:
-  Enabled: true
+  Enabled: true # default: false
   EnforcedStyle: new_line
 
 Layout/MultilineMethodCallIndentation:
@@ -64,100 +70,95 @@ Layout/SpaceAroundOperators:
 Layout/SpaceBeforeFirstArg:
   AllowForAlignment: false
 
-Lint/RedundantWithIndex:
-  Enabled: true
+Lint/HandleExceptions:
+  AllowComments: true
 
 Lint/UnusedMethodArgument:
   AllowUnusedKeywordArguments: true
   IgnoreEmptyMethods: true
 
 Metrics/AbcSize:
-  Enabled: true
-  Max: 20 # default: 15
-
-Metrics/BlockLength:
-  Enabled: true
-
-Metrics/CyclomaticComplexity:
-  Enabled: true
-  Max: 10 # default: 6
+  Enabled: false # default: true
 
 Metrics/LineLength:
-  Enabled: true
-  Max: 100 # default: 80
+  Max: 120 # default: 80
   IgnoredPatterns:
     - "^ *#" # comments
 
+Metrics/BlockLength:
+  Enabled: false # default: true
+  Exclude:
+    - "config/routes.rb"
+    - "config/routes/*"
+    - "lib/tasks/**/*"
+    - "Guardfile"
+
+Metrics/ClassLength:
+  Enabled: false # default: true
+
+Metrics/CyclomaticComplexity:
+  Enabled: false # default: true
+
 Metrics/MethodLength:
-  Enabled: false
-  Max: 12 # default: 10
+  Enabled: false # default: true
+
+Metrics/ModuleLength:
+  Enabled: false # default: true
 
 Metrics/PerceivedComplexity:
-  Enabled: true
-  Max: 10 # default: 7
+  Enabled: false # default: true
+
+Naming/AccessorMethodName:
+  Enabled: false # default: true
+
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    - as
 
 Naming/VariableNumber:
   EnforcedStyle: snake_case
 
-Style/AccessModifierDeclarations:
-  Enabled: false
+Performance/ChainArrayAllocation:
+  Enabled: true # default: false
+
+Performance/OpenStruct:
+  Enabled: true # default: false
 
 Style/AndOr:
-  Enabled: true
   EnforcedStyle: conditionals
 
 Style/AsciiComments:
-  Enabled: false
+  Enabled: false # default: true
+
+Style/AutoResourceCleanup:
+  Enabled: true # default: false
 
 Style/BracesAroundHashParameters:
-  Enabled: false
+  Enabled: false # default: true
 
-Style/Dir:
-  Enabled: true
+Style/DateTime:
+  Enabled: true # default: false
+
+Style/CollectionMethods:
+  Enabled: true # default: false
 
 Style/Documentation:
-  Enabled: false
+  Enabled: false # default: true
 
-Style/FrozenStringLiteralComment:
-  Enabled: true
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
 
-Style/MethodCallWithArgsParentheses:
-  Enabled: true # false by default
-  Exclude:
-    - "Gemfile"
-  IgnoreMacros: true
-  IgnoredMethods:
-    - include
-    - load
-    - print
-    - private
-    - protected
-    - public
-    - puts
-    - raise
-    - require
-    - require_relative
-    # rake
-    - desc
-    - namespace
-    - task
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true # default: false
 
 Style/ModuleFunction:
   EnforcedStyle: extend_self
 
 Style/ReturnNil:
-  Enabled: true
-
-Style/SignalException:
-  EnforcedStyle: only_raise
+  Enabled: true # default: false
 
 Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
+  EnforcedStyle: "double_quotes"
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: no_comma

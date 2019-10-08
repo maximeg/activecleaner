@@ -12,10 +12,6 @@ group :local do
   # Guard
   gem "guard-rspec", require: false
   gem "terminal-notifier-guard", require: false # OS X
-
-  # Coverage
-  gem "mutant"
-  gem "mutant-rspec"
 end
 
 # Documentation

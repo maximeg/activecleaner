@@ -1,7 +1,7 @@
 AllCops:
   Exclude:
-    - 'bin/*'
-    - 'gemfiles/*'
+    - "bin/*"
+    - "gemfiles/*"
   TargetRubyVersion: 2.3
 
 Layout/AccessModifierIndentation:

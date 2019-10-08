@@ -10,6 +10,7 @@
 /spec/reports/
 /tmp/
 /activecleaner-*.gem
+/node_modules
 
 # rspec failure tracking
 .rspec_status

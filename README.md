@@ -2,7 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/activecleaner.svg)](https://rubygems.org/gems/activecleaner)
 [![Build Status](https://travis-ci.org/maximeg/activecleaner.svg?branch=master)](https://travis-ci.org/maximeg/activecleaner)
-[![Dependency Status](https://gemnasium.com/maximeg/activecleaner.svg)](https://gemnasium.com/maximeg/activecleaner)
 
 `ActiveCleaner` is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)
 

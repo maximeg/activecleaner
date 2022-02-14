@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby: [2.3, 2.4, 2.5, 2.6, 2.7, '3.0', 3.1, head]
-        gemfiles: ['gemfiles/rails42.gemfile', 'gemfiles/rails50.gemfile', 'gemfiles/rails51.gemfile', 'gemfiles/rails52.gemfile', 'gemfiles/rails60.gemfile']
+        rails: ['rails42', 'rails50', 'rails51', 'rails52', 'rails60']
 
     steps:
     - name: Checkout repository
@@ -23,7 +23,7 @@ jobs:
         ruby-version: ${{matrix.ruby}}
 
     - name: Install dependencies
-      run: bundle install --jobs 4 --retry 3
+      run: bundle exec appraisal ${{matrix.rails}} bundle install --jobs 4 --retry 3
 
     - name: Specs
-      run: bundle exec rake ci
+      run: bundle exec appraisal ${{matrix.rails}} rake ci

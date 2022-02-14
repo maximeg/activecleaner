@@ -4,5 +4,5 @@ require "rubygems"
 require "rspec"
 require "active_cleaner"
 
-RSpec.configure do |_config|
+RSpec.configure do |_config| # rubocop:disable Lint/EmptyBlock
 end

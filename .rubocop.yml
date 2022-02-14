@@ -11,17 +11,19 @@ AllCops:
   Exclude:
     - "bin/*"
     - "gemfiles/*"
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
+  NewCops: enable
+  SuggestExtensions: false
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: key
   EnforcedColonStyle: key
   EnforcedLastArgumentHashStyle: ignore_implicit
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
 Layout/EmptyLinesAroundClassBody:
@@ -45,13 +47,13 @@ Layout/FirstHashElementLineBreak:
 Layout/FirstMethodArgumentLineBreak:
   Enabled: true # default: false
 
-Layout/IndentFirstArgument:
+Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Layout/MultilineAssignmentLayout:
@@ -70,7 +72,7 @@ Layout/SpaceAroundOperators:
 Layout/SpaceBeforeFirstArg:
   AllowForAlignment: false
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   AllowComments: true
 
 Lint/UnusedMethodArgument:
@@ -80,7 +82,7 @@ Lint/UnusedMethodArgument:
 Metrics/AbcSize:
   Enabled: false # default: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120 # default: 80
   IgnoredPatterns:
     - "^ *#" # comments
@@ -111,7 +113,7 @@ Metrics/PerceivedComplexity:
 Naming/AccessorMethodName:
   Enabled: false # default: true
 
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   AllowedNames:
     - as
 
@@ -132,9 +134,6 @@ Style/AsciiComments:
 
 Style/AutoResourceCleanup:
   Enabled: true # default: false
-
-Style/BracesAroundHashParameters:
-  Enabled: false # default: true
 
 Style/DateTime:
   Enabled: true # default: false

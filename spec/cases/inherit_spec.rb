@@ -24,7 +24,7 @@ class CarAd < Ad
   attr_accessor :body, :user_generated_content
 
   clean :body, as: :text
-  clean :user_generated_content, as: :utf8mb3
+  clean :user_generated_content, as: :utf8mb3 # rubocop:disable Naming/VariableNumber
 
 end
 

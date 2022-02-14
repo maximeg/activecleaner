@@ -48,9 +48,9 @@ module ActiveCleaner
     set_callback :validate, :before, :run_cleaners!
   end
 
-  module ClassMethods #:nodoc:
+  module ClassMethods
 
-    def inherited(base) #:nodoc:
+    def inherited(base)
       dup = _cleaners.dup
       base._cleaners =
         dup.each do |attr_name, cleaner|

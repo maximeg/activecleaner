@@ -6,7 +6,6 @@ require "active_cleaner/version"
 Gem::Specification.new do |s|
   s.name = "activecleaner"
   s.version = ActiveCleaner::Version::STRING
-  s.date = Time.now.strftime("%Y-%m-%d")
 
   s.authors = ["Maxime Garcia"]
   s.email = ["maxime.garcia@gmail.com"]
@@ -16,20 +15,22 @@ Gem::Specification.new do |s|
 
   s.license = "MIT"
 
+  s.metadata["rubygems_mfa_required"] = "true"
+
   s.files = %w[README.md LICENSE]
   s.files += Dir.glob("lib/**/*")
   s.require_paths = ["lib"]
   s.test_files = Dir.glob("spec/**/*")
 
-  s.required_ruby_version = ">= 2.3.0"
+  s.required_ruby_version = ">= 2.5.0"
 
-  s.add_runtime_dependency("activemodel", ">= 4.2", "< 6.1")
-  s.add_runtime_dependency("activesupport", ">= 4.2", "< 6.1")
+  s.add_runtime_dependency("activemodel", ">= 4.2", "< 7")
+  s.add_runtime_dependency("activesupport", ">= 4.2", "< 7")
 
   s.add_development_dependency("appraisal", "~> 2.2")
   s.add_development_dependency("rspec", "~> 3.4")
-  s.add_development_dependency("rubocop", "0.75.0")
-  s.add_development_dependency("rubocop-performance", "1.5.0")
+  s.add_development_dependency("rubocop", "1.25.1")
+  s.add_development_dependency("rubocop-performance", "1.13.2")
 
   s.description = <<-TXT
     ActiveCleaner is a set of helpers that helps you in cleaning user-typed content in your ActiveModel depending models (ActiveRecord, Mongoid...)

@@ -16,7 +16,7 @@ class OptimizedPost
   clean :title, nilify: true
   clean :name, as: :string, nilify: true
   clean :body, as: :text, nilify: true
-  clean :user_generated_content, as: :utf8mb3, nilify: true
+  clean :user_generated_content, as: :utf8mb3, nilify: true # rubocop:disable Naming/VariableNumber
 
 end
 

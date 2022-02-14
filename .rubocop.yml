@@ -12,6 +12,7 @@ AllCops:
     - "bin/*"
     - "gemfiles/*"
   TargetRubyVersion: 2.5
+  NewCops: enable
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
@@ -80,7 +81,7 @@ Lint/UnusedMethodArgument:
 Metrics/AbcSize:
   Enabled: false # default: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120 # default: 80
   IgnoredPatterns:
     - "^ *#" # comments

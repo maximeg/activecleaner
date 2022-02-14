@@ -23,6 +23,9 @@ jobs:
         ruby-version: ${{matrix.ruby}}
 
     - name: Install dependencies
+      run: bundle install --jobs 4 --retry 3
+
+    - name: Install appraisal dependencies
       run: bundle exec appraisal ${{matrix.rails}} bundle install --jobs 4 --retry 3
 
     - name: Specs

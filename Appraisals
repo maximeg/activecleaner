@@ -21,3 +21,7 @@ appraise "rails60" do
   gem "activemodel", "~> 6.0.0"
   gem "activesupport", "~> 6.0.0"
 end
+appraise "rails61" do
+  gem "activemodel", "~> 6.1.0"
+  gem "activesupport", "~> 6.1.0"
+end

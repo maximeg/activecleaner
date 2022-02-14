@@ -16,7 +16,7 @@ class Post
   clean :title
   clean :name, as: :string
   clean :body, as: :text
-  clean :user_generated_content, as: :utf8mb3
+  clean :user_generated_content, as: :utf8mb3 # rubocop:disable Naming/VariableNumber
 
 end
 

@@ -13,6 +13,7 @@ AllCops:
     - "gemfiles/*"
   TargetRubyVersion: 2.5
   NewCops: enable
+  SuggestExtensions: false
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
